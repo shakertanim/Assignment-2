@@ -1,0 +1,9 @@
+1. Commit the .gitignore file to your repository. Hint: Running git commit -am isn’t enough. Why not?
+
+Answer : .gitignore commited to the repository.
+
+Only git commit -am is not enough, as there is m switch, we also mention the commit text with it.
+
+2. Push your commit up to GitHub and confirm using the web interface that the push succeeded.
+
+Answer : Push succeded.
