@@ -1,0 +1,28 @@
+1. Use the command git branch -d about-page to delete the topic branch. Confirm by running git branch that only the main branch is left.
+
+
+Answer : 
+
+sh-3.2# git branch -d about-page
+Deleted branch about-page (was dcf220a).
+sh-3.2# git branch
+* main
+
+
+
+2. InListing3.3,weusedgitcheckout-btocreateabranchandcheck
+it out at the same time, but it’s also possible to break this into two steps.
+As a first step, use git branch to make a branch with the name test-branch. (This involves passing an argument to git branch, as in git branch <branch name>.) Then confirm that the new branch exists but isn’t currently checked out by running git branch without an argument.
+
+
+Answer :
+
+sh-3.2# git branch test-branch
+sh-3.2# git branch
+* main
+  test-branch
+sh-3.2# 
+
+
+
+3. Check out test-branch and use touch to add a file with a name of your choice, then add and commit it to the repository.
