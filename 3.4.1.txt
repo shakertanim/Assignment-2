@@ -1,0 +1,138 @@
+The git checkout -f trick works only with files that are staged for commit or are already part of the repository, but sometimes you want to get rid of new files as well. Using touch, create a file with a name of your choice, then git add it. Verify that running git checkout -f gets rid of it.
+2. Like many other Unix programs, git accepts both “short form” and “long form” options. Repeat the previous exercise with git checkout --force to confirm that the effects of -f and --force are identical. Extra credit: Double­check this conclusion by finding the “force” option in the output of git help checkout.
+
+
+
+Answer :
+
+
+sh-3.2# echo >> about.html # Appends a newline to about.html
+sh-3.2# vi about.html 
+sh-3.2# echo > about.html 
+sh-3.2# cat about.html 
+
+sh-3.2# git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   about.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+sh-3.2# git diff
+diff --git a/about.html b/about.html
+index 5054f02..8b13789 100755
+--- a/about.html
++++ b/about.html
+@@ -1,14 +1 @@
+-<!DOCTYPE html>
+-<html>
+-  <head>
+-    <title>About Us</title>
+-    <meta charset="utf-8">
+-  </head>
+-  <body>
+-    <h1>About</h1>
+-    <p>
+-       This site is a sample project for the <strong>awesome</strong> Git
+-tutorial <em>Learn EnoughTM Git to Be Dangerous</em>.
+-    </p>
+-  </body>
+-</html>
++
+sh-3.2# git checkout -f
+Your branch is up to date with 'origin/main'.
+sh-3.2# git diff
+sh-3.2# cat about.html 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Us</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>About</h1>
+    <p>
+        This site is a sample project for the <strong>awesome</strong> Git
+tutorial <em>Learn EnoughTM Git to Be Dangerous</em>.
+    </p>
+  </body>
+</html>
+sh-3.2# git checkout -b test-branch
+Switched to a new branch 'test-branch'
+sh-3.2# echo > about.html 
+sh-3.2# git commit -am "Oops"
+[test-branch 6b0e9d6] Oops
+ 1 file changed, 1 insertion(+), 14 deletions(-)
+sh-3.2# git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+sh-3.2# git branch -D test-branch
+Deleted branch test-branch (was 6b0e9d6).
+sh-3.2# 
+sh-3.2# 
+sh-3.2# 
+sh-3.2# 
+sh-3.2# git branch
+* main
+sh-3.2# 
+sh-3.2# 
+sh-3.2# ls
+-L                      .gitignore              3.1.1.txt               3.3.2.txt               about.html              index.html
+.git                    .unwanted_DS_Store      3.2.1.txt               README.md               images
+sh-3.2# 
+sh-3.2# 
+sh-3.2# cat about.html 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Us</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>About</h1>
+    <p>
+        This site is a sample project for the <strong>awesome</strong> Git
+tutorial <em>Learn EnoughTM Git to Be Dangerous</em>.
+    </p>
+  </body>
+</html>
+sh-3.2# echo > about.html 
+sh-3.2# git diff
+diff --git a/about.html b/about.html
+index 5054f02..8b13789 100755
+--- a/about.html
++++ b/about.html
+@@ -1,14 +1 @@
+-<!DOCTYPE html>
+-<html>
+-  <head>
+-    <title>About Us</title>
+-    <meta charset="utf-8">
+-  </head>
+-  <body>
+-    <h1>About</h1>
+-    <p>
+-       This site is a sample project for the <strong>awesome</strong> Git
+-tutorial <em>Learn EnoughTM Git to Be Dangerous</em>.
+-    </p>
+-  </body>
+-</html>
++
+sh-3.2# git checkout --force
+Your branch is up to date with 'origin/main'.
+sh-3.2# cat about.html 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Us</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>About</h1>
+    <p>
+        This site is a sample project for the <strong>awesome</strong> Git
+tutorial <em>Learn EnoughTM Git to Be Dangerous</em>.
+    </p>
