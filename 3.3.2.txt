@@ -1,0 +1,92 @@
+1. Use the command git branch -d about-page to delete the topic branch. Confirm by running git branch that only the main branch is left.
+
+
+Answer : 
+
+sh-3.2# git branch -d about-page
+Deleted branch about-page (was dcf220a).
+sh-3.2# git branch
+* main
+
+
+
+2. InListing3.3,weusedgitcheckout-btocreateabranchandcheck
+it out at the same time, but it’s also possible to break this into two steps.
+As a first step, use git branch to make a branch with the name test-branch. (This involves passing an argument to git branch, as in git branch <branch name>.) Then confirm that the new branch exists but isn’t currently checked out by running git branch without an argument.
+
+
+Answer :
+
+sh-3.2# git branch test-branch
+sh-3.2# git branch
+* main
+  test-branch
+sh-3.2# 
+
+
+
+3. Check out test-branch and use touch to add a file with a name of your choice, then add and commit it to the repository.
+
+
+Answer : 
+
+sh-3.2# git checkout test-branch
+Switched to branch 'test-branch'
+sh-3.2# touch IAmSuperLazy.txt
+sh-3.2# 
+sh-3.2# 
+sh-3.2# git add -A
+sh-3.2# git commit -am "Added my characteristics file.... I am Super Lazy...."
+[test-branch 0f5c9e1] Added my characteristics file.... I am Super Lazy....
+ 2 files changed, 28 insertions(+)
+ create mode 100644 3.3.2.txt
+ create mode 100644 IAmSuperLazy.txt
+sh-3.2# git push
+fatal: The current branch test-branch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin test-branch
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+sh-3.2# git push --set-upstream origin test-branch
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 759 bytes | 759.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'test-branch' on GitHub by visiting:
+remote:      https://github.com/shakertanim/Assignment-2/pull/new/test-branch
+remote: 
+To github.com:shakertanim/Assignment-2.git
+ * [new branch]      test-branch -> test-branch
+branch 'test-branch' set up to track 'origin/test-branch'.
+sh-3.2# 
+sh-3.2# 
+sh-3.2# 
+
+
+
+4. Check out the main branch and try deleting the test branch using git branch -d to confirm that it doesn’t work. The reason is that, in con­ trast to the about-page branch, the test branch hasn’t been merged into main, and by design -d doesn’t work in this case. Because we don’t actually want its changes, delete the test by using the related -D option, which deletes the branch in question even if its changes are unmerged.
+
+
+Answer :
+
+sh-3.2# git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+sh-3.2# 
+sh-3.2# 
+sh-3.2# git branch
+* main
+  test-branch
+sh-3.2# git branch -d test-branch
+warning: deleting branch 'test-branch' that has been merged to
+         'refs/remotes/origin/test-branch', but not yet merged to HEAD.
+Deleted branch test-branch (was 0f5c9e1).
+sh-3.2# git branch
+* main
