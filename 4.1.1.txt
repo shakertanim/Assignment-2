@@ -48,4 +48,114 @@ index 0000000..75cc539
 
 
 2. The whale picture added in Listing 3.1 (Figure 3.1) requires attribution under the Creative Commons Attribution­NoDerivs 2.0 Generic license. As Alice, link the image to the original attribution page, as shown in Listing 4.1. Commit the result and push to GitHub.
+
+
+
+Answer : 
+
+sh-3.2# vi index.html 
+sh-3.2# 
+sh-3.2# 
+sh-3.2# 
+sh-3.2# git add -A
+sh-3.2# git commit -am "Added attribution page for whale image"
+[main 7e81254] Added attribution page for whale image
+ 2 files changed, 53 insertions(+), 1 deletion(-)
+ create mode 100644 4.1.1.txt
+sh-3.2# git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 1.56 KiB | 1.56 MiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:shakertanim/Assignment-2.git
+   de44d69..7e81254  main -> main
+
+
+
 3. As Bob, pull in the changes from the previous exercise. Verify by re­ freshing the browser and by running git log -p that Bob’s repo has been properly updated.
+
+
+Answer : 
+
+sh-3.2# cd /tmp/website-clone/
+sh-3.2# git pull
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 2), reused 4 (delta 2), pack-reused 0
+Unpacking objects: 100% (4/4), 1.54 KiB | 315.00 KiB/s, done.
+From github.com:shakertanim/Assignment-2
+   de44d69..7e81254  main       -> origin/main
+Updating de44d69..7e81254
+Fast-forward
+ 4.1.1.txt  | 51 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ index.html |  3 ++-
+ 2 files changed, 53 insertions(+), 1 deletion(-)
+ create mode 100644 4.1.1.txt
+sh-3.2# 
+sh-3.2# 
+sh-3.2# 
+sh-3.2# git log -p
+commit 7e8125485c26232db17ca143a46f9339ca2530b4 (HEAD -> main, origin/main, origin/HEAD)
+Author: Kamrul Shaker <kamrul.shaker@bongobd.com>
+Date:   Tue Mar 12 13:59:06 2024 -0500
+
+    Added attribution page for whale image
+
+diff --git a/4.1.1.txt b/4.1.1.txt
+new file mode 100644
+index 0000000..f2ee23a
+--- /dev/null
++++ b/4.1.1.txt
+@@ -0,0 +1,51 @@
++
++1. As Alice, run git log to verify that the commit was pulled down cor­ rectly. Double­check the details using git log -p.
++
++
++Answer : 
++
++sh-3.2# git log -p
++commit de44d69ef6792791f063ac809a2058bc21b921ba (HEAD -> main, origin/main)
++Author: Kamrul Shaker <kamrul.shaker@bongobd.com>
++Date:   Tue Mar 12 13:56:01 2024 -0500
++
++    Add link to tutorial title
++
++diff --git a/about.html b/about.html
++index 5054f02..f1145dd 100755
++--- a/about.html
+++++ b/about.html
++@@ -8,7 +8,7 @@
++     <h1>About</h1>
++     <p>
++        This site is a sample project for the <strong>awesome</strong> Git
++-tutorial <em>Learn EnoughTM Git to Be Dangerous</em>.
+++tutorial <a href="https://www.learnenough.com/git-tutorial">...</a> <em>Learn EnoughTM Git to Be Dangerous</em>.
++     </p>
++   </body>
++ </html>
++
++commit 5f32de9d465f26a2bc6a0615eae6a7d9341d14ec
++Author: Kamrul Shaker <kamrul.shaker@bongobd.com>
++Date:   Tue Mar 12 13:31:52 2024 -0500
++
++    Answered 3.4.1
++
++diff --git a/3.4.1.txt b/3.4.1.txt
++new file mode 100644
++index 0000000..75cc539
++--- /dev/null
+++++ b/3.4.1.txt
++@@ -0,0 +1,138 @@
+++The git checkout -f trick works only with files that are staged for commit or are already part of the repository, but sometimes you want to get rid of new files as well. Using touch, create a file with a name of your choice, then git add it. Verify that running git checkout -f gets rid of it.
+++2. Like many other Unix programs, git accepts both “short form” and “long form” options. Repeat the previous exercise with git checkout --force to confirm that the effects of -f and --force are identical. Extra credit: Double­check this conclusion by finding the “force” option in the output of git help checkout.
+++
+++
+++
+++Answer :
+++
++
+sh-3.2# 
