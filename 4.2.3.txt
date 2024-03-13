@@ -1,0 +1,23 @@
+4.2.3 Exercises
+1. Change your default Git editor from Vim to Atom. Hint: Google for it. (This is an absolutely classic application of technical sophistication (Box 1.2): With a well­chosen Google search, you can often go from “I have no idea how to do this” to “It’s done” in under 30 seconds.)
+
+
+Answer : 
+
+I have changed the git editor to vim, as atom does not work properly in my os.
+
+2. ThepolarbearpictureaddedinListing4.3(Figure4.11)requiresattribu­ tion under the Creative Commons Attribution 2.0 Generic license. As Al­ ice, link the image to the original attribution page, as shown in Listing 4.8. Then run git commit -a without including -m and a command­line message. This should drop you into the default Git editor. Quit the edi­ tor without including a message, which cancels the commit.
+
+Answer : Done
+
+3. Rungitcommit-aagain,butthistimeaddthecommitmessage“Add polar bear attribution link”. Then hit return a couple of times and add a longer message of your choice. (One example appears in Figure 4.17.) Save the message and exit the editor.
+
+Answer : Done
+
+4. Run git log to confirm that both the short and longer messages cor­ rectly appear. After pushing the changes to GitHub, navigate to the page for the commit to confirm that both the short and longer messages cor­ rectly appear.
+
+Answer : Both messages correctly appeated.
+
+5. As Bob, pull in the changes to the About page. Verify by refreshing the browser and by running git log -p that Bob’s repo has been properly updated.
+
+Answer : After pull, Bob also had the same update.
