@@ -1,0 +1,80 @@
+1. Bob’s main branch doesn’t currently have Alice’s merge, so check out main as Bob and do a git pull. Confirm using git log that Alice’s merge commit is now present.
+
+Answer : 
+
+commit 92b4c01e93692f17ec55b3cd0be57b44fe44033a (HEAD -> main, origin/main, origin/fix-trademark, origin/HEAD, fix-trademark)
+Author: Kamrul Shaker <kamrul.shaker@bongobd.com>
+Date:   Wed Mar 13 01:00:05 2024 -0500
+
+    Fix trademark character display
+
+diff --git a/about.html b/about.html
+index 731adec..2b91e28 100755
+--- a/about.html
++++ b/about.html
+@@ -3,6 +3,7 @@
+ <html>
+   <head>
+     <title>About Us</title>
++    <meta charset="utf-8">
+ </head>
+   <body>
+     <h1><strong>About Us</strong></h1>
+diff --git a/index.html b/index.html
+index 96ffe9b..f4d9d1f 100755
+--- a/index.html
++++ b/index.html
+@@ -2,6 +2,7 @@
+ <html>
+   <head>
+     <title>A whale of a greeting</title>
++    <meta charset="utf-8">
+   </head>
+   <body>
+     <h1>hello, world</h1>
+
+commit a126f813bb875d97565f165cd5d6a14f90b8d633
+Author: Kamrul Shaker <kamrul.shaker@bongobd.com>
+Date:   Wed Mar 13 00:58:42 2024 -0500
+
+    fix-trademark
+
+diff --git a/about.html b/about.html
+index 2b91e28..731adec 100755
+--- a/about.html
++++ b/about.html
+@@ -3,7 +3,6 @@
+ <html>
+   <head>
+     <title>About Us</title>
+-    <meta charset="utf-8">
+ </head>
+   <body>
+     <h1><strong>About Us</strong></h1>
+diff --git a/index.html b/index.html
+index f4d9d1f..96ffe9b 100755
+--- a/index.html
++++ b/index.html
+@@ -2,7 +2,6 @@
+ <html>
+   <head>
+
+
+2. Delete the fix-trademark branch locally. Do you need to use the -D option (Section 3.3.2), or is -d sufficient?
+
+Answer :
+
+sh-3.2# git branch -d fix-trademark
+Deleted branch fix-trademark (was 92b4c01).
+
+-d is sufficient.
+
+
+
+3. Delete the remote fix-trademark branch on GitHub. Hint: If you get stuck, Google for it.
+
+
+
+Answer : 
+
+fix-trademark branch deleted from github.com repo.
